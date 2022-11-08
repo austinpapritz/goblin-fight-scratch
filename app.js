@@ -8,7 +8,7 @@ const babyListDiv = document.querySelector('.baby-list');
 
 /* State */
 let currentId = 3;
-
+let parentSleep = 5;
 let babies = [
     { id: 1, name: 'Joey', hunger: 2 },
 
@@ -16,6 +16,26 @@ let babies = [
 ];
 
 /* Events */
+
+function handleBabyClick(baby) {
+    if (baby.hunger <= 0) return;
+
+    if (Math.random() < 0.33) {
+        baby.hunger--;
+        parentSleep++;
+        alert('You fed ' + baby.name + ' and got some rest!');
+    } else {
+        if (Math.random() < 0.5) {
+            parentSleep--;
+            parentSleep--;
+            alert(baby.name + ' is VERY fussy. This is going to be a long night!');
+        } else {
+            parentSleep--;
+            alert(baby.name + ' is too fussy! You lost sleep!');
+        }
+    }
+}
+
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -38,6 +58,11 @@ function displayBabies() {
     babyListDiv.textContent = '';
     for (let baby of babies) {
         const babyEl = renderBaby(baby);
+
+        babyEl.addEventListener('click', () => {
+            handleBabyClick(baby);
+        });
+
         babyListDiv.append(babyEl);
     }
 }
