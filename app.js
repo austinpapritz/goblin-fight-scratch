@@ -4,13 +4,15 @@ import { renderBaby } from './render.js';
 /* Get DOM Elements */
 const formEl = document.querySelector('form');
 
+const babyListDiv = document.querySelector('.baby-list');
+
 /* State */
 let currentId = 3;
 
 let babies = [
-    { id: 1, name: 'Joey', hunger: 3 },
+    { id: 1, name: 'Joey', hunger: 2 },
 
-    { id: 2, name: 'Abby', hunger: 3 },
+    { id: 2, name: 'Abby', hunger: 1 },
 ];
 
 /* Events */
@@ -26,11 +28,19 @@ formEl.addEventListener('submit', (e) => {
     };
 
     currentId++;
-
     babies.push(newBaby);
-    console.log(babies);
+    displayBabies();
 });
 
 /* Display Functions */
 
+function displayBabies() {
+    babyListDiv.textContent = '';
+    for (let baby of babies) {
+        const babyEl = renderBaby(baby);
+        babyListDiv.append(babyEl);
+    }
+}
+
 // (don't forget to call any display functions you want to run on page load!)
+displayBabies();
