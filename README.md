@@ -10,15 +10,15 @@ Acceptance Criteria
 -   Render fed babies differently, and disable clicking on them when fed
 -   When the user's HP is 0, launch a game over message
 -   Baby click handler
--                   Uses Math.random() function to determine amount fed
--                   Alerts user whether they fed the baby or not and updates HP
--                   Alerts user whether the parent lost sleep or not and updates HP
+-         Uses Math.random() function to determine amount fed
+-         Alerts user whether they fed the baby or not and updates HP
+-          Alerts user whether the parent lost sleep or not and updates HP
 -   Show number of fed babies
 -   Display babies differently and disable clicking when defeated
 -   Disable all functionality when the game is over
 -   Functions
--                   PURE: `renderBabies(baby)` : return DOM node`
--                   IMPURE: `displayBabies()` : clears DOM and appends baby data to baby list DOM node`
+-          PURE: `renderBabies(baby)` : return DOM node`
+-          IMPURE: `displayBabies()` : clears DOM and appends baby data to baby list DOM node`
 
 ## HTML
 
@@ -40,3 +40,18 @@ Parent sleep level \<div>
 -   \<p> Your sleep lvl: 10
 
 Parent Emoji \<div> Parent Emoji
+
+States
+
+-   Baby count
+-   Parent sleep lvl
+-   Baby hunger
+-   Babies fed count
+
+Events
+
+-   Take in info for making baby
+-   Render baby (div, p, p)
+-   Feed baby on click (update hunger, chance of sleep deprivation)
+-   Update scoreboard when baby fed, baby no longer clickable
+-   game ends when sleeplvl = 0
