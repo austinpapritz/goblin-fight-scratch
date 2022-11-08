@@ -31,6 +31,11 @@ header .logo {
 }
 
 main {
+    background-image: url('../assets/baby_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 20px;
 }
 
