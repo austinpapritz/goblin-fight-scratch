@@ -6,14 +6,19 @@ const formEl = document.querySelector('form');
 
 const babyListDiv = document.querySelector('.baby-list');
 
+const sleepEl = document.querySelector('#sleep-lvl');
+const fedEl = document.querySelector('#babies-fed-num');
+
 /* State */
-let currentId = 3;
-let parentSleep = 5;
 let babies = [
     { id: 1, name: 'Joey', hunger: 2 },
 
     { id: 2, name: 'Abby', hunger: 1 },
 ];
+
+let currentId = 3;
+let parentSleep = 5;
+let fedCount = 0;
 
 /* Events */
 
@@ -34,6 +39,9 @@ function handleBabyClick(baby) {
             alert(baby.name + ' is too fussy! You lost sleep!');
         }
     }
+
+    displayBabies();
+    displayParentStats();
 }
 
 formEl.addEventListener('submit', (e) => {
@@ -67,5 +75,11 @@ function displayBabies() {
     }
 }
 
+function displayParentStats() {
+    sleepEl.textContent = parentSleep;
+    fedEl.textContent = fedCount;
+}
+
 // (don't forget to call any display functions you want to run on page load!)
 displayBabies();
+displayParentStats();
