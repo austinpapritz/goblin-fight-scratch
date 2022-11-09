@@ -9,6 +9,8 @@ const babyListDiv = document.querySelector('.baby-list');
 const sleepEl = document.querySelector('#sleep-lvl');
 const fedEl = document.querySelector('#babies-fed-num');
 
+const parentEmoji = document.querySelector('.parent-emoji');
+
 /* State */
 let babies = [
     { id: 1, name: 'Joey', hunger: 2 },
@@ -37,6 +39,10 @@ function handleBabyClick(baby) {
         } else {
             parentSleep--;
             alert(baby.name + ' is too fussy! You lost sleep!');
+        }
+        if (parentSleep === 0) {
+            parentEmoji.classList.add('game-over');
+            alert('GAME OVER');
         }
     }
 
