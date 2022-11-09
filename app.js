@@ -29,6 +29,10 @@ function handleBabyClick(baby) {
 
     if (Math.random() < 0.33) {
         baby.hunger--;
+        if (baby.hunger === 0) {
+            fedCount++;
+            console.log(fedCount);
+        }
         parentSleep++;
         alert('You fed ' + baby.name + ' and got some rest!');
     } else {
@@ -45,7 +49,6 @@ function handleBabyClick(baby) {
             alert('GAME OVER');
         }
     }
-
     displayBabies();
     displayParentStats();
 }
