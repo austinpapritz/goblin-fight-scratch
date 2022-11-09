@@ -21,7 +21,7 @@ let babies = [
 ];
 
 let currentId = 3;
-let parentSleep = 1;
+let parentSleep = 6;
 let fedCount = 0;
 
 /* Events */
@@ -48,7 +48,7 @@ function handleBabyClick(baby) {
         if (parentSleep <= 0) {
             parentEmoji.classList.add('game-over');
             alert('GAME OVER');
-            // bodyEl.classList.add('hide');
+            bodyEl.classList.add('fed');
         }
     }
     displayBabies();

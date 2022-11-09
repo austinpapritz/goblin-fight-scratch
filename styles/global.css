@@ -34,6 +34,7 @@ main {
     grid-template-columns: 1fr 1fr;
     padding: 20px;
 }
+
 .parent-stats {
     display: flex;
     flex-direction: column;
@@ -81,12 +82,9 @@ form {
 .fed {
     opacity: 0.5;
     cursor: default;
+    pointer-events: none;
 }
 
 .game-over {
     transform: rotate(90deg);
-}
-
-.hide {
-    display: none;
 }
