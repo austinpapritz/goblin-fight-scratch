@@ -42,7 +42,7 @@ main {
 }
 
 .parent-emoji {
-    /* font-size: 5em; */
+    display: block;
 }
 
 .parent {
