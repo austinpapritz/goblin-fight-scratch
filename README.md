@@ -1,27 +1,57 @@
-## The Golden Rule:
+# Crying Baby
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+![wireframe](./assets/wireframe.png)
+Acceptance Criteria
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+-   On load, see the HP and names of at least two default babies
+-   On submitting the 'have a baby' form, add a new baby object (with 3 HP and a name) to state and display it to the DOM
+-   On clicking a baby, it should tell the user whether they fed the baby or not, then update state and DOM appropriately with new HP
+-   On clicking a baby, it should tell the user whether the parent lost sleep the player or not, then update state and DOM appropriately with new sleep level
+-   Render fed babies differently, and disable clicking on them when fed
+-   When the user's HP is 0, launch a game over message
+-   Baby click handler
+-         Uses Math.random() function to determine amount fed
+-         Alerts user whether they fed the baby or not and updates HP
+-          Alerts user whether the parent lost sleep or not and updates HP
+-   Show number of fed babies
+-   Display babies differently and disable clicking when defeated
+-   Disable all functionality when the game is over
+-   Functions
+-          PURE: `renderBabies(baby)` : return DOM node`
+-          IMPURE: `displayBabies()` : clears DOM and appends baby data to baby list DOM node`
 
-## Making a plan
+## HTML
 
-1. **Make a drawing of your app. Simple "wireframes"**
-1. **Look at the drawing and name the HTML elements you'll need to realize your vision**
-1. **Look at the drawing and imagine using the app. What _state_ do you need to track?**
-1. **For each HTML element ask: Why do I need this? (i.e., "we need div to display the results in")**
-1. **Once we know _why_ we need each element, think about how to implement the "Why" as a "How" (i.e., `resultsEl.textContent = newResults`)**
-1. **Find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What happens when" for each of these events. Does any state change? Does any DOM update?**
-1. **Think about how to validate each of your features according to a Definition of Done. (Hint: console.log usually helps here.)**
-1. **Consider what features _depend_ on what other features. Use this dependency logic to figure out what order to complete tasks.**
+Form
 
-Additional considerations:
+-   h2
+-   input, button
 
--   Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
--   Consider your data model.
-    -   What kinds of objects (i.e., Dogs, Friends, Todos, etc) will you need?
-    -   What are the key/value pairs?
-    -   What arrays might you need?
-    -   What needs to live in a persistence layer?
--   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+baby \<div>
+
+-   baby.name, emoji = hungerlvl 😭=3 😢=2 🥺=1 👶=0
+
+Scoreboard \<div>
+
+-   \<p> You have fed ${babiesFed} babies.
+
+Parent sleep level \<div>
+
+-   \<p> Your sleep lvl: 10
+
+Parent Emoji \<div> Parent Emoji
+
+States
+
+-   Baby count
+-   Parent sleep lvl
+-   Baby hunger
+-   Babies fed count
+
+Events
+
+-   Take in info for making baby
+-   Render baby (div, p, p)
+-   Feed baby on click (update hunger, chance of sleep deprivation)
+-   Update scoreboard when baby fed, baby no longer clickable
+-   game ends when sleeplvl = 0
